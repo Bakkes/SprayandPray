@@ -130,6 +130,18 @@ function getFireRate(){
 	return this.pullDown;
 }
 
+var backgrounds = 
+    {
+        "Spray Master": "spraymaster.jpg",
+        "D2 Long Corner - T": "d2longt.jpg",
+        "D2 Long Corner - CT": "d2longct.jpg",
+        "D2 Long Corner to Corner": "d2longcornercorner.jpg",
+        "Inferno Mid": "infernomid.jpg",
+        "Inferno Banana Rush": "infernobanana.jpg",
+        "Cache Main to Quad": "cacheamain.jpg",
+        "Cache B Main": "cachebmain.jpg"
+    };
+
 var patternAdjustment =
     {
       "Spray Master": {
@@ -225,62 +237,18 @@ var AR = '16-9';
 make_base(AR);
 
 
+
 function make_base(AR){
 	base_image = new Image();
 	
 	var options = document.getElementById("mapList").options;
 	var index = document.getElementById("mapList").selectedIndex;
-	switch(options[index].text){
-		case 'Spray Master':
-			base_image.src = 'images/' + AR + '/spraymaster.jpg';
-			base_image.onload = function(){
-				context.drawImage(base_image, 0,0,screen.width,screen.height);
-			}
-			
-			break;
-		case 'D2 Long Corner - T':
-			base_image.src = 'images/' + AR + '/d2longt.jpg';
-			base_image.onload = function(){
-				context.drawImage(base_image, 0,0,screen.width,screen.height);
-			}
-			break;
-		case 'D2 Long Corner - CT':
-			base_image.src = 'images/' + AR + '/d2longct.jpg';
-			base_image.onload = function(){
-				context.drawImage(base_image, 0,0,screen.width,screen.height);
-			}
-			break;
-		case "D2 Long Corner to Corner":
-			base_image.src = 'images/' + AR + '/d2longcornercorner.jpg';
-			base_image.onload = function(){
-				context.drawImage(base_image, 0,0,screen.width,screen.height);
-			}
-			break;
-		case "Inferno Mid":
-			base_image.src = 'images/' + AR + '/infernomid.jpg';
-			base_image.onload = function(){
-				context.drawImage(base_image, 0,0,screen.width,screen.height);
-			}
-			break;
-		case "Inferno Banana Rush":
-			base_image.src = 'images/' + AR + '/infernobanana.jpg';
-			base_image.onload = function(){
-				context.drawImage(base_image, 0,0,screen.width,screen.height);
-			}
-			break;
-		case "Cache Main to Quad":
-			base_image.src = 'images/' + AR + '/cacheamain.jpg';
-			base_image.onload = function(){
-				context.drawImage(base_image, 0,0,screen.width,screen.height);
-			}
-			break;
-		case "Cache B Main":
-			base_image.src = 'images/' + AR + '/cachebmain.jpg';
-			base_image.onload = function(){
-				context.drawImage(base_image, 0,0,screen.width,screen.height);
-			}
-			break;
-	}
+    
+    base_image.src = 'images/' + AR + '/' + backgrounds[options[index].text];
+    base_image.onload = function(){
+        context.drawImage(base_image, 0,0,screen.width,screen.height);
+    }
+    
 	selectGun(name);
 }
 
