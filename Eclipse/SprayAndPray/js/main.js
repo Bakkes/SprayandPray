@@ -130,278 +130,75 @@ function getFireRate(){
 	return this.pullDown;
 }
 
-function adjustPattern(pattern, name){
+var patternAdjustment =
+    {
+      "Spray Master": {
+          "ak47": 1.45,
+          "m4a1": .14,
+          "galil": .22,
+          "m4a4": .21,
+          "famas": .24
+      },
+      "D2 Long Corner - T": {
+          "ak47": 1.5,
+          "m4a1": .145,
+          "galil": .145,
+          "m4a4": .145,
+          "famas": .145
+      },
+      "D2 Long Corner - CT": {
+          "ak47": 1.5,
+          "m4a1": .145,
+          "galil": .145,
+          "m4a4": .145,
+          "famas": .145
+      },
+      "D2 Long Corner to Corner": {
+          "ak47": 1.6,
+          "m4a1": 1.6/1.45 * .14,
+          "galil": 1.6/1.45 * .14,
+          "m4a4": 1.6/1.45 * .14,
+          "famas": 1.6/1.45 * .14
+      },
+      "Inferno Mid": {
+          "ak47": 1.35,
+          "m4a1": 1.35/1.45 * .14,
+          "galil": 1.35/1.45 * .14,
+          "m4a4": 1.35/1.45 * .14,
+          "famas": 1.35/1.45 * .14
+      },
+      "Inferno Banana Rush": {
+          "ak47": 1.7,
+          "m4a1": 1.7/1.45 * .14,
+          "galil": 1.7/1.45 * .14,
+          "m4a4": 1.7/1.45 * .14,
+          "famas": 1.7/1.45 * .14
+      },
+      "Cache Main to Quad": {
+          "ak47": 1.45,
+          "m4a1": .14,
+          "galil": .14,
+          "m4a4": .14,
+          "famas": .14
+      },
+      "Cache B Main": {
+          "ak47": 1.45,
+          "m4a1": .14,
+          "galil": .14,
+          "m4a4": .14,
+          "famas": .14
+      },
+        
+    };
 
+function adjustPattern(pattern, name){
 	var options = document.getElementById("mapList").options;
 	var index = document.getElementById("mapList").selectedIndex;
-	
-	switch(options[index].text){
-		case 'Spray Master':
-			
-			if(name == 'ak47'){
-				for(i = 0; i < pattern.length;i++){
-					for(j = 0; j<pattern[i].length;j++){
-						pattern[i][j] = pattern[i][j] * 1.45;
-					}
-				}
-			} else if (name == 'm4a1'){
-				for(i = 0; i < pattern.length;i++){
-					for(j = 0; j<pattern[i].length;j++){
-						pattern[i][j] = pattern[i][j] * .14
-					}
-				}
-			} else if (name == 'galil'){
-				for(i = 0; i < pattern.length;i++){
-					for(j = 0; j<pattern[i].length;j++){
-						pattern[i][j] = pattern[i][j] * .22
-					}
-				}
-			} else if (name == 'm4a4'){
-				for(i = 0; i < pattern.length;i++){
-					for(j = 0; j<pattern[i].length;j++){
-						pattern[i][j] = pattern[i][j] * .21
-					}
-				}
-			} else if (name == 'famas'){
-				for(i = 0; i < pattern.length;i++){
-					for(j = 0; j<pattern[i].length;j++){
-						pattern[i][j] = pattern[i][j] * .24
-					}
-				}
-			}
-			break;
-		case 'D2 Long Corner - T':
-			if(name == 'ak47'){
-				for(i = 0; i < pattern.length;i++){
-					for(j = 0; j<pattern[i].length;j++){
-						pattern[i][j] = pattern[i][j] * 1.5;
-					}0
-				}
-			} else if (name == 'm4a1'){
-				for(i = 0; i < pattern.length;i++){
-					for(j = 0; j<pattern[i].length;j++){
-						pattern[i][j] = pattern[i][j] * .145;
-					}
-				}
-			} else if (name == 'm4a4'){
-				for(i = 0; i < pattern.length;i++){
-					for(j = 0; j<pattern[i].length;j++){
-						pattern[i][j] = pattern[i][j] * .145;
-					}
-				}
-			} else if (name == 'galil'){
-				for(i = 0; i < pattern.length;i++){
-					for(j = 0; j<pattern[i].length;j++){
-						pattern[i][j] = pattern[i][j] * .145;
-					}
-				}
-			} else if (name == 'famas'){
-				for(i = 0; i < pattern.length;i++){
-					for(j = 0; j<pattern[i].length;j++){
-						pattern[i][j] = pattern[i][j] * .145;
-					}
-				}
-			}
-			break;
-		case 'D2 Long Corner - CT':
-			if(name == 'ak47'){
-				for(i = 0; i < pattern.length;i++){
-					for(j = 0; j<pattern[i].length;j++){
-						pattern[i][j] = pattern[i][j] * 1.5;
-					}0
-				}
-			} else if (name == 'm4a1'){
-				for(i = 0; i < pattern.length;i++){
-					for(j = 0; j<pattern[i].length;j++){
-						pattern[i][j] = pattern[i][j] * .145;
-					}
-				}
-			} else if (name == 'm4a4'){
-				for(i = 0; i < pattern.length;i++){
-					for(j = 0; j<pattern[i].length;j++){
-						pattern[i][j] = pattern[i][j] * .145;
-					}
-				}
-			} else if (name == 'galil'){
-				for(i = 0; i < pattern.length;i++){
-					for(j = 0; j<pattern[i].length;j++){
-						pattern[i][j] = pattern[i][j] * .145;
-					}
-				}
-			} else if (name == 'famas'){
-				for(i = 0; i < pattern.length;i++){
-					for(j = 0; j<pattern[i].length;j++){
-						pattern[i][j] = pattern[i][j] * .145;
-					}
-				}
-			}
-			break;
-		case "D2 Long Corner to Corner":
-			if(name == 'ak47'){
-				for(i = 0; i < pattern.length;i++){
-					for(j = 0; j<pattern[i].length;j++){
-						pattern[i][j] = pattern[i][j] * 1.6;
-					}
-				}
-			} else if (name == 'm4a1'){
-				for(i = 0; i < pattern.length;i++){
-					for(j = 0; j<pattern[i].length;j++){
-						pattern[i][j] = pattern[i][j] * 1.6/1.45 * .14;
-					}
-				}
-			} else if (name == 'm4a4'){
-				for(i = 0; i < pattern.length;i++){
-					for(j = 0; j<pattern[i].length;j++){
-						pattern[i][j] = pattern[i][j] * 1.6/1.45 * .14;
-					}
-				}
-			} else if (name == 'galil'){
-				for(i = 0; i < pattern.length;i++){
-					for(j = 0; j<pattern[i].length;j++){
-						pattern[i][j] = pattern[i][j] * 1.6/1.45 * .14;
-					}
-				}
-			} else if (name == 'famas'){
-				for(i = 0; i < pattern.length;i++){
-					for(j = 0; j<pattern[i].length;j++){
-						pattern[i][j] = pattern[i][j] * 1.6/1.45 * .14;
-					}
-				}
-			}
-			break;
-		case "Inferno Mid":
-			if(name == 'ak47'){
-				for(i = 0; i < pattern.length;i++){
-					for(j = 0; j<pattern[i].length;j++){
-						pattern[i][j] = pattern[i][j] * 1.35;
-					}
-				}
-			} else if (name == 'm4a1'){
-				for(i = 0; i < pattern.length;i++){
-					for(j = 0; j<pattern[i].length;j++){
-						pattern[i][j] = pattern[i][j] * 1.35/1.45 * .14;
-					}
-				}
-			} else if (name == 'm4a4'){
-				for(i = 0; i < pattern.length;i++){
-					for(j = 0; j<pattern[i].length;j++){
-						pattern[i][j] = pattern[i][j] * 1.35/1.45 * .14;
-					}
-				}
-			} else if (name == 'galil'){
-				for(i = 0; i < pattern.length;i++){
-					for(j = 0; j<pattern[i].length;j++){
-						pattern[i][j] = pattern[i][j] * 1.35/1.45 * .14;
-					}
-				}
-			} else if (name == 'famas'){
-				for(i = 0; i < pattern.length;i++){
-					for(j = 0; j<pattern[i].length;j++){
-						pattern[i][j] = pattern[i][j] * 1.35/1.45 * .14;
-					}
-				}
-			}
-			break;
-		case "Inferno Banana Rush":
-			if(name == 'ak47'){
-				for(i = 0; i < pattern.length;i++){
-					for(j = 0; j<pattern[i].length;j++){
-						pattern[i][j] = pattern[i][j] * 1.7;
-					}
-				}
-			} else if (name == 'm4a1'){
-				for(i = 0; i < pattern.length;i++){
-					for(j = 0; j<pattern[i].length;j++){
-						pattern[i][j] = pattern[i][j] * 1.7/1.45 * .14;
-					}
-				}
-			} else if (name == 'galil'){
-				for(i = 0; i < pattern.length;i++){
-					for(j = 0; j<pattern[i].length;j++){
-						pattern[i][j] = pattern[i][j] * 1.7/1.45 * .14;
-					}
-				}
-			}else if (name == 'm4a4'){
-				for(i = 0; i < pattern.length;i++){
-					for(j = 0; j<pattern[i].length;j++){
-						pattern[i][j] = pattern[i][j] * 1.7/1.45 * .14;
-					}
-				}
-			}else if (name == 'famas'){
-				for(i = 0; i < pattern.length;i++){
-					for(j = 0; j<pattern[i].length;j++){
-						pattern[i][j] = pattern[i][j] * 1.7/1.45 * .14;
-					}
-				}
-			}
-			break;
-		case "Cache Main to Quad":
-			if(name == 'ak47'){
-				for(i = 0; i < pattern.length;i++){
-					for(j = 0; j<pattern[i].length;j++){
-						pattern[i][j] = pattern[i][j] * 1.45;
-					}
-				}
-			} else if (name == 'm4a1'){
-				for(i = 0; i < pattern.length;i++){
-					for(j = 0; j<pattern[i].length;j++){
-						pattern[i][j] = pattern[i][j] * .14;
-					}
-				}
-			} else if (name == 'galil'){
-				for(i = 0; i < pattern.length;i++){
-					for(j = 0; j<pattern[i].length;j++){
-						pattern[i][j] = pattern[i][j] * .14;
-					}
-				}
-			} else if (name == 'm4a4'){
-				for(i = 0; i < pattern.length;i++){
-					for(j = 0; j<pattern[i].length;j++){
-						pattern[i][j] = pattern[i][j] * .14;
-					}
-				}
-			}else if (name == 'famas'){
-				for(i = 0; i < pattern.length;i++){
-					for(j = 0; j<pattern[i].length;j++){
-						pattern[i][j] = pattern[i][j] * .14;
-					}
-				}
-			}
-			break;
-		case "Cache B Main":
-			if(name == 'ak47'){
-				for(i = 0; i < pattern.length;i++){
-					for(j = 0; j<pattern[i].length;j++){
-						pattern[i][j] = pattern[i][j] * 1.45;
-					}
-				}
-			} else if (name == 'm4a1'){
-				for(i = 0; i < pattern.length;i++){
-					for(j = 0; j<pattern[i].length;j++){
-						pattern[i][j] = pattern[i][j] * .14;
-					}
-				}
-			}else if (name == 'galil'){
-				for(i = 0; i < pattern.length;i++){
-					for(j = 0; j<pattern[i].length;j++){
-						pattern[i][j] = pattern[i][j] * .14;
-					}
-				}
-			}else if (name == 'm4a4'){
-				for(i = 0; i < pattern.length;i++){
-					for(j = 0; j<pattern[i].length;j++){
-						pattern[i][j] = pattern[i][j] * .14;
-					}
-				}
-			}else if (name == 'famas'){
-				for(i = 0; i < pattern.length;i++){
-					for(j = 0; j<pattern[i].length;j++){
-						pattern[i][j] = pattern[i][j] * .14;
-					}
-				}
-			}
-			break;
-	}
+    for(i = 0; i < pattern.length;i++){
+		for(j = 0; j<pattern[i].length;j++){
+			pattern[i][j] = pattern[i][j] * patternAdjustment[options[index].text][name];
+        }
+    }
 	
 	return pattern;
 
